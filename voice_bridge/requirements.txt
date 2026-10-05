@@ -1,0 +1,12 @@
+# 小紫语音助手依赖（voice_bridge/）
+# 安装：python -m pip install -r voice_bridge/requirements.txt
+# 说明：以下为实测可用版本，已在 Python 3.13 + Windows 上验证通过。
+
+numpy>=1.26
+sounddevice>=0.4.6          # 麦克风采集 / 扬声器播放（PortAudio）
+soundfile>=0.12             # 读写 wav/mp3
+onnxruntime>=1.16           # silero VAD 推理
+faster-whisper>=1.0         # 本地 STT（自带 silero_vad_v6，无需额外下载）
+openai>=1.30                # DeepSeek 走 OpenAI 兼容协议
+edge-tts>=6.1               # TTS 回退后端（需联网）
+scipy>=1.10                 # 可选：重采样

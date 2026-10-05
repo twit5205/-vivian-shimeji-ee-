@@ -1,0 +1,55 @@
+# ============================================================
+#  Shimeji-ee 薇薇安 AI 桌宠 - 忽略规则
+#  原则：凡是含密钥、含个人数据、或可由机器重新生成的内容，一律不入库
+# ============================================================
+
+# ---------- 私密配置：含 API Key，绝对不要提交 ----------
+conf/ai_config.properties
+
+# ---------- 个人人设提示词（请使用 .example 模板） ----------
+conf/character_prompt.txt
+
+# ---------- 本地记忆数据库：含用户画像与对话历史 ----------
+conf/memory.db
+conf/memory.db-wal
+conf/memory.db-shm
+conf/memory_summary.txt
+
+# ---------- 运行日志并可能含对话内容与本地路径 ----------
+*.log
+hs_err_pid*.mdmp
+replay_pid*.log
+
+# ---------- 语音桥临时合成音频 ----------
+voice_bridge/_tts_*.wav
+voice_bridge/_tts_*.mp3
+_tts_*.wav
+_tts_*.mp3
+
+# ---------- 备份与构建中间产物 ----------
+*.bak
+*.bak-*
+*.bak_*
+*.pre-*
+*.lck
+_jarx/
+
+# ---------- 本地预览与素材处理输出 ----------
+img/shime_preview.png
+analysis/anchor_align_out/
+analysis/regen_out/
+
+# ---------- Python ----------
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# ---------- 编辑器与系统 ----------
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini

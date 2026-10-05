@@ -1,0 +1,51 @@
+# 统一换行符，避免 Windows 上出现 CRLF 警告与无意义的整文件 diff
+* text=auto eol=crlf
+
+# ============================================================
+# GitHub Linguist 语言统计
+# ------------------------------------------------------------
+# GitHub 会把体积最大的文本文件判为"主要语言"。本项目里体积最大的是
+# 生成的架构图 HTML（analysis/ 下的自包含图表，内嵌全部 SVG+JS），
+# 它会让仓库语言栏误显示为 HTML。
+#
+# 这里把这些文件标为文档，使语言统计反映真实源码。
+# 注意：Java 逻辑在 Shimeji-ee.jar 二进制里，仓库不含 .java 源文件，
+# 因此语言栏不会出现（也不会出现）Java —— 这是预期的。
+# ============================================================
+analysis/*.html  linguist-documentation
+analysis/*.json  linguist-documentation
+analysis/*.mjs   linguist-documentation
+analysis/*.svg   linguist-documentation
+analysis/export/* linguist-documentation
+
+# 界面翻译文件：是资源不是源码，避免拉高 properties 占比
+conf/language_*.properties linguist-documentation
+conf/schema*.properties    linguist-documentation
+
+# 生成/参考类 HTML 一律不计入语言统计
+*.html linguist-documentation
+
+# 文本文件显式声明
+*.md        text eol=lf
+*.py        text eol=lf
+*.properties text eol=lf
+*.xml       text eol=crlf
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+*.json      text eol=lf
+*.mjs       text eol=lf
+*.txt       text eol=lf
+*.xsd       text eol=lf
+*.yml       text eol=lf
+
+# 二进制资源不得做换行转换
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.svg       text eol=lf
+*.jar       binary
+*.onnx      binary
+*.db        binary
+*.wav       binary
+*.mp3       binary
